@@ -1,0 +1,30 @@
+.books-list-item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  background-color: #f4c7ab;
+  padding: 15px 25px;
+  border-radius: 30px;
+  font-size: 17px;
+}
+
+.books-list-item__name {
+  font-weight: 600;
+  flex-grow: 0.05;
+}
+.books-list-item__author {
+  font-weight: 400;
+  font-size: 14px;
+  flex-grow: 2;
+}
+
+.books-list-item__actions {
+  display: flex;
+  gap: 8px;
+  height: 25px;
+}
+
+.books-list-item__actions ion-icon {
+  cursor: pointer;
+  font-size: 25px;
+}
