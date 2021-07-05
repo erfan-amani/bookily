@@ -1,15 +1,15 @@
 import React from 'react';
 import BooksFilter from './BooksFilter';
-import './BooksList.css';
+import './Books.css';
 import BooksSearch from './BooksSearch';
 
-const BooksList = () => {
+const Books = () => {
   return (
-    <div className="book-list">
+    <div className="books">
       <BooksSearch />
       <BooksFilter />
     </div>
   );
 };
 
-export default BooksList;
+export default Books;

@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import BooksList from './Books/‌BooksList';
+import Books from './Books/‌Books';
 import NewBook from './NewBook/NewBook';
 
 const App = () => {
   return (
     <div className="app">
       <NewBook />
-      <BooksList />
+      <Books />
     </div>
   );
 };
