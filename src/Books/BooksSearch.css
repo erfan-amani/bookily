@@ -1,0 +1,29 @@
+.books-search {
+  display: flex;
+  align-items: center;
+}
+
+.books-search .books-search__header {
+  color: #ecdbba;
+  font-size: 22px;
+  font-weight: 600;
+  flex-grow: 2;
+}
+
+.books-search .books-search__input {
+  padding: 8px 40px 8px 16px;
+  font-size: 14px;
+  border-radius: 20px;
+  border: none;
+  background-color: #fdf6e8;
+}
+
+.books-search .books-search__input:focus {
+  outline: none;
+}
+
+ion-icon[name='search-outline'] {
+  font-size: 25px;
+  position: relative;
+  left: -35px;
+}
