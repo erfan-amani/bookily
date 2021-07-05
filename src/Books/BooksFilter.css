@@ -1,0 +1,19 @@
+.books-filter {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.books-filter__filter {
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 30px;
+  padding: 5px 20px;
+  color: #3f453b;
+  background-color: #fff;
+}
+.books-filter__filter.active {
+  background-color: #3f453b;
+  color: #fff;
+  font-weight: 500;
+}
