@@ -1,5 +1,27 @@
+/* COLOR PALETTE => https://colorhunt.co/palette/161616346751c84b31ecdbba */
+
+* {
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+html {
+  font-family: 'Poppins', sans-serif;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  background: linear-gradient(
+    94.55deg,
+    rgba(200, 75, 49, 0.58) 3.04%,
+    #ffc074 96.83%
+  );
 }
