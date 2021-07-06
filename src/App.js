@@ -65,10 +65,35 @@ const App = () => {
     setBooksData((prev) => [newBookData, ...prev]);
   };
 
+  const deleteBookHandler = (id) => {
+    setBooksData((prev) => prev.filter((book) => book.id !== id));
+  };
+
+  const likeBookHandler = (id) => {
+    setBooksData((prev) =>
+      prev.map((book) =>
+        book.id === id ? { ...book, liked: !book.liked } : book
+      )
+    );
+  };
+
+  const readBookHandler = (id) => {
+    setBooksData((prev) =>
+      prev.map((book) =>
+        book.id === id ? { ...book, read: !book.read } : book
+      )
+    );
+  };
+
   return (
     <div className="app">
       <NewBook addNewBookHandler={addNewBookHandler} />
-      <Books items={booksData} />
+      <Books
+        items={booksData}
+        deleteBookHandler={deleteBookHandler}
+        likeBookHandler={likeBookHandler}
+        readBookHandler={readBookHandler}
+      />
     </div>
   );
 };

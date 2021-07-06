@@ -4,8 +4,12 @@ import './Books.css';
 import BooksSearch from './BooksSearch';
 import BooksList from './BooksList';
 
-const Books = ({ items }) => {
-  // const [filteredBooks, setFilteredBooks] = useState([]);
+const Books = ({
+  items,
+  deleteBookHandler,
+  likeBookHandler,
+  readBookHandler,
+}) => {
   const [selectedFilter, setSelectedFilter] = useState('all');
 
   const selectFilterHandler = (value) => {
@@ -27,7 +31,12 @@ const Books = ({ items }) => {
         selectFilterHandler={selectFilterHandler}
         selectedFilter={selectedFilter}
       />
-      <BooksList items={filteredBooks} />
+      <BooksList
+        items={filteredBooks}
+        deleteBookHandler={deleteBookHandler}
+        likeBookHandler={likeBookHandler}
+        readBookHandler={readBookHandler}
+      />
     </div>
   );
 };
