@@ -11,9 +11,9 @@ const BooksList = ({ items }) => {
           author={book.author}
           liked={book.liked}
           read={book.read}
+          key={book.id}
         />
       ))}
-      {/* <BooksListItem /> */}
     </div>
   );
 };
