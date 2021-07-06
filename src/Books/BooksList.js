@@ -2,10 +2,18 @@ import React from 'react';
 import './BooksList.css';
 import BooksListItem from './BooksListItem';
 
-const BooksList = () => {
+const BooksList = ({ items }) => {
   return (
     <div className="books-list">
-      <BooksListItem />
+      {items.map((book) => (
+        <BooksListItem
+          name={book.name}
+          author={book.author}
+          liked={book.liked}
+          read={book.read}
+        />
+      ))}
+      {/* <BooksListItem /> */}
     </div>
   );
 };

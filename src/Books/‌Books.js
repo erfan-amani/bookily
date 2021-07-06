@@ -4,12 +4,12 @@ import './Books.css';
 import BooksSearch from './BooksSearch';
 import BooksList from './BooksList';
 
-const Books = () => {
+const Books = ({ items }) => {
   return (
     <div className="books">
       <BooksSearch />
       <BooksFilter />
-      <BooksList />
+      <BooksList items={items} />
     </div>
   );
 };

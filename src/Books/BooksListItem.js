@@ -1,11 +1,11 @@
 import React from 'react';
 import './BooksListItem.css';
 
-const BooksListItem = () => {
+const BooksListItem = ({ name, author, liked, read }) => {
   return (
     <div className="books-list-item">
-      <div className="books-list-item__name">Into the wild</div>
-      <div className="books-list-item__author">Jhon morphy</div>
+      <div className="books-list-item__name">{name}</div>
+      <div className="books-list-item__author">{author}</div>
       <div className="books-list-item__actions">
         <ion-icon name="square-outline"></ion-icon>
         {/* <ion-icon name="checkbox-outline"></ion-icon> */}
