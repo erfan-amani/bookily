@@ -28,3 +28,7 @@
   cursor: pointer;
   font-size: 25px;
 }
+
+.books-list-item__actions ion-icon[name='heart'] {
+  color: #c84b31;
+}

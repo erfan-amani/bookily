@@ -7,11 +7,11 @@ const BooksListItem = ({ name, author, liked, read }) => {
       <div className="books-list-item__name">{name}</div>
       <div className="books-list-item__author">{author}</div>
       <div className="books-list-item__actions">
-        <ion-icon name="square-outline"></ion-icon>
-        {/* <ion-icon name="checkbox-outline"></ion-icon> */}
+        <ion-icon
+          name={read ? 'checkbox-outline' : 'square-outline'}
+        ></ion-icon>
         <ion-icon name="trash-outline"></ion-icon>
-        <ion-icon name="heart-outline"></ion-icon>
-        {/* <ion-icon name="heart" style={{ color: '#C84B31' }}></ion-icon> */}
+        <ion-icon name={liked ? 'heart' : 'heart-outline'}></ion-icon>
       </div>
     </div>
   );
