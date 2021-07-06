@@ -7,8 +7,8 @@ const INITIAL_DATA = [
   {
     name: 'War and Peace',
     author: 'Leo Tolstoy',
-    liked: false,
-    read: false,
+    liked: true,
+    read: true,
     id: 'waplt27',
   },
   {
@@ -35,7 +35,7 @@ const INITIAL_DATA = [
   {
     name: 'The Lord of the Rings',
     author: 'J.R.R. Tolkien',
-    liked: false,
+    liked: true,
     read: false,
     id: 'tlotrjt',
   },
@@ -43,7 +43,7 @@ const INITIAL_DATA = [
     name: 'Great Gatsby',
     author: 'F. Scott Fitzgerald',
     liked: false,
-    read: false,
+    read: true,
     id: 'ggsf',
   },
 ];
