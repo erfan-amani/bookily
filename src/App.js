@@ -51,9 +51,23 @@ const INITIAL_DATA = [
 const App = () => {
   const [booksData, setBooksData] = useState(INITIAL_DATA);
 
+  const addNewBookHandler = (value) => {
+    const arr = [...value.name.split(' '), ...value.author.split(' ')];
+    const id = arr.reduce((id, word) => id + word[0].toLowerCase(), '');
+
+    const newBookData = {
+      name: value.name,
+      author: value.author,
+      liked: false,
+      read: false,
+      id: id,
+    };
+    setBooksData((prev) => [newBookData, ...prev]);
+  };
+
   return (
     <div className="app">
-      <NewBook />
+      <NewBook addNewBookHandler={addNewBookHandler} />
       <Books items={booksData} />
     </div>
   );
