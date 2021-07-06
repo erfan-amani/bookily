@@ -53,7 +53,11 @@ const App = () => {
 
   const addNewBookHandler = (value) => {
     const arr = [...value.name.split(' '), ...value.author.split(' ')];
-    const id = arr.reduce((id, word) => id + word[0].toLowerCase(), '');
+    const id =
+      arr.reduce((id, word) => id + word[0].toLowerCase(), '') +
+      Math.round(Math.random() * 100);
+
+    console.log(id);
 
     const newBookData = {
       name: value.name,
