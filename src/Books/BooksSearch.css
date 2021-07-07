@@ -28,3 +28,6 @@ ion-icon[name='close-outline'] {
   position: relative;
   left: -35px;
 }
+ion-icon[name='close-outline'] {
+  cursor: pointer;
+}

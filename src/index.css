@@ -5,6 +5,11 @@
   font-family: inherit;
 }
 
+::selection {
+  color: #f3f4ed;
+  background: #c84b31;
+}
+
 html {
   font-family: 'Poppins', sans-serif;
 }
