@@ -22,12 +22,11 @@
   outline: none;
 }
 
-ion-icon[name='search-outline'],
-ion-icon[name='close-outline'] {
-  font-size: 25px;
+.books-search img {
+  width: 25px;
   position: relative;
   left: -35px;
 }
-ion-icon[name='close-outline'] {
+.books-search img[alt='close'] {
   cursor: pointer;
 }

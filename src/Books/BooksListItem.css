@@ -24,11 +24,7 @@
   height: 25px;
 }
 
-.books-list-item__actions ion-icon {
+.books-list-item__actions img {
   cursor: pointer;
-  font-size: 25px;
-}
-
-.books-list-item__actions ion-icon[name='heart'] {
-  color: #c84b31;
+  width: 25px;
 }

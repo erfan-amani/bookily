@@ -1,9 +1,11 @@
 import React from 'react';
 import './BooksSearch.css';
+import closeIcon from '../icons/close-outline.svg';
+import searchIcon from '../icons/search-outline.svg';
 
 const BooksSearch = ({ searchTermChangeHandler, searchTerm }) => {
   const clearTheSearchTerm = (event) => {
-    if (event.target.name === 'close-outline')
+    if (event.target.alt === 'close')
       searchTermChangeHandler({ target: { value: '' } });
   };
 
@@ -16,10 +18,11 @@ const BooksSearch = ({ searchTermChangeHandler, searchTerm }) => {
         onChange={searchTermChangeHandler}
         value={searchTerm}
       />
-      <ion-icon
+      <img
+        src={searchTerm === '' ? searchIcon : closeIcon}
         onClick={clearTheSearchTerm}
-        name={searchTerm === '' ? 'search-outline' : 'close-outline'}
-      ></ion-icon>
+        alt={searchTerm === '' ? 'search' : 'close'}
+      />
     </div>
   );
 };

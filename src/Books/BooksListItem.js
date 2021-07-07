@@ -1,5 +1,10 @@
 import React from 'react';
 import './BooksListItem.css';
+import trash from '../icons/trash-outline.svg';
+import heartFill from '../icons/heart.svg';
+import heartOutline from '../icons/heart-outline.svg';
+import checkboxOutline from '../icons/checkbox-outline.svg';
+import squareOutline from '../icons/square-outline.svg';
 
 const BooksListItem = ({
   name,
@@ -16,18 +21,17 @@ const BooksListItem = ({
       <div className="books-list-item__name">{name}</div>
       <div className="books-list-item__author">{author}</div>
       <div className="books-list-item__actions">
-        <ion-icon
-          name={read ? 'checkbox-outline' : 'square-outline'}
+        <img
+          src={read ? checkboxOutline : squareOutline}
+          alt="read"
           onClick={() => readBookHandler(id)}
-        ></ion-icon>
-        <ion-icon
-          name="trash-outline"
-          onClick={() => deleteBookHandler(id)}
-        ></ion-icon>
-        <ion-icon
-          name={liked ? 'heart' : 'heart-outline'}
+        />
+        <img src={trash} alt="trash" onClick={() => deleteBookHandler(id)} />
+        <img
+          src={liked ? heartFill : heartOutline}
+          alt="like"
           onClick={() => likeBookHandler(id)}
-        ></ion-icon>
+        />
       </div>
     </div>
   );
