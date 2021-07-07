@@ -11,12 +11,21 @@ const Books = ({
   readBookHandler,
 }) => {
   const [selectedFilter, setSelectedFilter] = useState('all');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const selectFilterHandler = (value) => {
     setSelectedFilter(value);
   };
 
-  let filteredBooks = items;
+  const searchTermChangeHandler = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  let filteredBooks = items.filter(
+    (book) =>
+      book.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      book.author.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   if (selectedFilter !== 'all') {
     filteredBooks = items.filter((book) =>
@@ -26,7 +35,10 @@ const Books = ({
 
   return (
     <div className="books">
-      <BooksSearch />
+      <BooksSearch
+        searchTermChangeHandler={searchTermChangeHandler}
+        searchTerm={searchTerm}
+      />
       <BooksFilter
         selectFilterHandler={selectFilterHandler}
         selectedFilter={selectedFilter}
