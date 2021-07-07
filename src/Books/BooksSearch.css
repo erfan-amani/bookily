@@ -22,7 +22,8 @@
   outline: none;
 }
 
-ion-icon[name='search-outline'] {
+ion-icon[name='search-outline'],
+ion-icon[name='close-outline'] {
   font-size: 25px;
   position: relative;
   left: -35px;

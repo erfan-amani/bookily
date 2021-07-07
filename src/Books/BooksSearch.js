@@ -2,6 +2,11 @@ import React from 'react';
 import './BooksSearch.css';
 
 const BooksSearch = ({ searchTermChangeHandler, searchTerm }) => {
+  const clearTheSearchTerm = (event) => {
+    if (event.target.name === 'close-outline')
+      searchTermChangeHandler({ target: { value: '' } });
+  };
+
   return (
     <div className="books-search">
       <h3 className="books-search__header">Search for Books</h3>
@@ -11,7 +16,10 @@ const BooksSearch = ({ searchTermChangeHandler, searchTerm }) => {
         onChange={searchTermChangeHandler}
         value={searchTerm}
       />
-      <ion-icon name="search-outline"></ion-icon>
+      <ion-icon
+        onClick={clearTheSearchTerm}
+        name={searchTerm === '' ? 'search-outline' : 'close-outline'}
+      ></ion-icon>
     </div>
   );
 };
