@@ -1,3 +1,6 @@
+.input-container.error .input {
+  border-color: #c33a1d;
+}
 .input {
   padding: 8px 16px;
   font-size: 14px;

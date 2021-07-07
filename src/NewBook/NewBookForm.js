@@ -5,11 +5,20 @@ import NewBookInput from './NewBookInput';
 const NewBookForm = ({ addNewBookHandler }) => {
   const [enteredName, setEnteredName] = useState('');
   const [enteredAuthor, setEnteredAuthor] = useState('');
+  const [error, setError] = useState({
+    title: 'Invalid value',
+  });
 
   const nameChangeHandler = (event) => {
+    setError((prev) => {
+      return { ...prev, Name: false };
+    });
     setEnteredName(event.target.value);
   };
   const authorChangeHandler = (event) => {
+    setError((prev) => {
+      return { ...prev, Author: false };
+    });
     setEnteredAuthor(event.target.value);
   };
 
@@ -22,6 +31,23 @@ const NewBookForm = ({ addNewBookHandler }) => {
   const submitNewBookFormHandler = (event) => {
     event.preventDefault();
 
+    if (enteredName === '' && enteredAuthor === '') {
+      setError((prev) => {
+        return { ...prev, Name: true, Author: true };
+      });
+      return;
+    } else if (enteredName === '') {
+      setError((prev) => {
+        return { ...prev, Name: true, Author: false };
+      });
+      return;
+    } else if (enteredAuthor === '') {
+      setError((prev) => {
+        return { ...prev, Name: false, Author: true };
+      });
+      return;
+    }
+
     emptyInputs();
     addNewBookHandler({ name: enteredName, author: enteredAuthor });
   };
@@ -31,15 +57,15 @@ const NewBookForm = ({ addNewBookHandler }) => {
       <p>Add New Book:</p>
       <NewBookInput
         label={'Name'}
-        className={'new-book-input'}
         value={enteredName}
         changeHandler={nameChangeHandler}
+        error={error}
       />
       <NewBookInput
         label={'Author'}
-        className={'new-book-input'}
         value={enteredAuthor}
         changeHandler={authorChangeHandler}
+        error={error}
       />
       <div className="new-book-form__buttons">
         <a href="." onClick={emptyInputs}>
