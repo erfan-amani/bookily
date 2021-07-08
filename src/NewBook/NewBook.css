@@ -24,13 +24,25 @@
     height: auto;
     padding: 0.5rem;
     border-radius: 1.25rem 1.25rem 0px 0px;
-    gap: 7rem;
-    flex-direction: row;
+    /* gap: 7rem;
+    flex-direction: row; */
+    gap: 0;
     justify-content: center;
     align-items: center;
   }
   .new-book .header {
     padding-top: 0;
     font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .new-book {
+    /* gap: 1.5rem; */
+    gap: 0rem;
+    padding-bottom: 2rem;
+  }
+  .new-book .header {
+    font-size: 1.5rem;
   }
 }

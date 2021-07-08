@@ -34,7 +34,7 @@ body {
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   html {
-    font-size: 8px;
+    font-size: 9px;
   }
 }
 
