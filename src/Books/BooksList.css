@@ -2,26 +2,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-  padding-right: 10px;
+  padding-right: 0.625rem;
 }
 
 .books-list::-webkit-scrollbar-track {
-  padding: 2px 0;
-  border-radius: 10px;
+  padding: 0.125rem 0;
+  border-radius: 0.625rem;
   background-color: #deedf0;
 
   position: relative;
-  right: 50px;
+  right: 3.125rem;
 }
 
 .books-list::-webkit-scrollbar {
-  width: 10px;
+  width: 0.625rem;
 }
 .books-list::-webkit-scrollbar-thumb {
-  border-radius: 10px;
+  border-radius: 0.625rem;
   background-color: #4aa96c;
+}
+
+@media only screen and (max-width: 768px) {
+  .books-list::-webkit-scrollbar-track,
+  .books-list::-webkit-scrollbar,
+  .books-list::-webkit-scrollbar-thumb {
+    display: none;
+  }
 }

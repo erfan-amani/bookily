@@ -3,9 +3,9 @@
   width: 100%;
   align-items: center;
   background-color: #feffde;
-  padding: 15px 25px;
+  padding: 0.93rem 1.56rem;
   border-radius: 30px;
-  font-size: 17px;
+  font-size: 1rem;
 }
 
 .books-list-item__name {
@@ -14,17 +14,17 @@
 }
 .books-list-item__author {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.8rem;
   flex-grow: 2;
 }
 
 .books-list-item__actions {
   display: flex;
-  gap: 8px;
-  height: 25px;
+  gap: 0.5rem;
+  height: 1.56rem;
 }
 
 .books-list-item__actions img {
   cursor: pointer;
-  width: 25px;
+  width: 1.56rem;
 }

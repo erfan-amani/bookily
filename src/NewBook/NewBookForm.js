@@ -55,18 +55,20 @@ const NewBookForm = ({ addNewBookHandler }) => {
   return (
     <form className="new-book-form" onSubmit={submitNewBookFormHandler}>
       <p>Add New Book:</p>
-      <NewBookInput
-        label={'Name'}
-        value={enteredName}
-        changeHandler={nameChangeHandler}
-        error={error}
-      />
-      <NewBookInput
-        label={'Author'}
-        value={enteredAuthor}
-        changeHandler={authorChangeHandler}
-        error={error}
-      />
+      <div className="new-book-form__inputs">
+        <NewBookInput
+          label={'Name'}
+          value={enteredName}
+          changeHandler={nameChangeHandler}
+          error={error}
+        />
+        <NewBookInput
+          label={'Author'}
+          value={enteredAuthor}
+          changeHandler={authorChangeHandler}
+          error={error}
+        />
+      </div>
       <div className="new-book-form__buttons">
         <a href="." onClick={emptyInputs}>
           Cansel

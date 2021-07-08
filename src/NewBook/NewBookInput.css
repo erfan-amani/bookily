@@ -2,9 +2,9 @@
   border-color: #c33a1d;
 }
 .input {
-  padding: 8px 16px;
-  font-size: 14px;
-  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 0.87rem;
+  border-radius: 0.62rem;
 }
 
 .input:focus {
@@ -15,4 +15,17 @@
 .new-book-input {
   width: 100%;
   border: 2px solid #3f413c;
+}
+
+@media only screen and (max-width: 768px) {
+  .input {
+    padding: 0.3rem 0.8rem;
+  }
+  .new-book-input {
+    width: 100%;
+    border: 1px solid #3f413c;
+  }
+  .input:focus {
+    border: 1px solid #2a2b2a;
+  }
 }

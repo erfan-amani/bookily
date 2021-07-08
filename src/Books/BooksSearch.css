@@ -5,15 +5,15 @@
 
 .books-search .books-search__header {
   color: #ecdbba;
-  font-size: 22px;
+  font-size: 1.3rem;
   font-weight: 600;
   flex-grow: 2;
 }
 
 .books-search .books-search__input {
-  padding: 8px 40px 8px 16px;
-  font-size: 14px;
-  border-radius: 20px;
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  font-size: 0.875rem;
+  border-radius: 1.25rem;
   border: none;
   background-color: #fdf6e8;
 }
@@ -23,9 +23,9 @@
 }
 
 .books-search img {
-  width: 25px;
+  width: 1.56rem;
   position: relative;
-  left: -35px;
+  left: -2.18rem;
 }
 .books-search img[alt='close'] {
   cursor: pointer;

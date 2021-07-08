@@ -1,19 +1,27 @@
 .new-book-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
+  margin: auto 0;
+}
+
+.new-book-form__inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
 .new-book-form p {
+  font-weight: 1rem;
   font-weight: 500;
 }
 
 .new-book-form__buttons {
   display: flex;
-  gap: 50px;
+  gap: 3rem;
   align-items: center;
   justify-content: flex-end;
-  padding-top: 15px;
+  padding-top: 0.93rem;
 }
 
 .new-book-form__buttons a {
@@ -24,8 +32,23 @@
 .new-book-form__buttons button {
   cursor: pointer;
   background-color: #bdecc2;
-  font-size: 16px;
+  font-size: 1rem;
   width: 40%;
-  padding: 15px 5px;
+  padding: 0.93rem 0.3rem;
   border: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .new-book-form {
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .new-book-form {
+    gap: 0;
+  }
+  .new-book-form__inputs {
+    flex-direction: row;
+  }
 }
