@@ -1,81 +1,87 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './NewBookForm.css';
-import NewBookInput from './NewBookInput';
+import useInput from '../hooks/use-input';
 
 const NewBookForm = ({ addNewBookHandler }) => {
-  const [enteredName, setEnteredName] = useState('');
-  const [enteredAuthor, setEnteredAuthor] = useState('');
-  const [error, setError] = useState({
-    title: 'Invalid value',
-  });
+  const {
+    value: name,
+    valueIsValid: nameIsValid,
+    hasError: nameHasError,
+    onChange: nameChangeHandler,
+    onBlur: nameBlurHandler,
+    reset: resetName,
+  } = useInput((value) => value.trim() !== '');
 
-  const nameChangeHandler = (event) => {
-    setError((prev) => {
-      return { ...prev, Name: false };
-    });
-    setEnteredName(event.target.value);
-  };
-  const authorChangeHandler = (event) => {
-    setError((prev) => {
-      return { ...prev, Author: false };
-    });
-    setEnteredAuthor(event.target.value);
-  };
+  const {
+    value: author,
+    valueIsValid: authorIsValid,
+    hasError: authorHasError,
+    onChange: authorChangeHandler,
+    onBlur: authorBlurHandler,
+    reset: resetAuthor,
+  } = useInput((value) => value.trim() !== '');
 
-  const emptyInputs = (event = null) => {
-    if (event) event.preventDefault();
-    setEnteredName('');
-    setEnteredAuthor('');
-  };
+  const formIsValid = nameIsValid && authorIsValid;
 
-  const submitNewBookFormHandler = (event) => {
+  const submissionHandler = (event) => {
     event.preventDefault();
 
-    if (enteredName === '' && enteredAuthor === '') {
-      setError((prev) => {
-        return { ...prev, Name: true, Author: true };
-      });
-      return;
-    } else if (enteredName === '') {
-      setError((prev) => {
-        return { ...prev, Name: true, Author: false };
-      });
-      return;
-    } else if (enteredAuthor === '') {
-      setError((prev) => {
-        return { ...prev, Name: false, Author: true };
-      });
-      return;
-    }
+    if (!formIsValid) return;
+    addNewBookHandler({ name, author });
 
-    emptyInputs();
-    addNewBookHandler({ name: enteredName, author: enteredAuthor });
+    resetForm();
   };
 
+  const resetForm = () => {
+    resetName();
+    resetAuthor();
+  };
+
+  const nameClasses = nameHasError ? 'control invalid' : 'control';
+  const authorClasses = authorHasError ? 'control invalid' : 'control';
+
   return (
-    <form className="new-book-form" onSubmit={submitNewBookFormHandler}>
-      <p>Add New Book:</p>
-      <div className="new-book-form__inputs">
-        <NewBookInput
-          label={'Name'}
-          value={enteredName}
-          changeHandler={nameChangeHandler}
-          error={error}
-        />
-        <NewBookInput
-          label={'Author'}
-          value={enteredAuthor}
-          changeHandler={authorChangeHandler}
-          error={error}
-        />
-      </div>
-      <div className="new-book-form__buttons">
-        <a href="." onClick={emptyInputs}>
-          Cansel
-        </a>
-        <button type="submit">Add</button>
-      </div>
-    </form>
+    <>
+      <form className="new-book-form" onSubmit={submissionHandler}>
+        <p>Add New Book:</p>
+        <div className="inputs">
+          <div className={nameClasses}>
+            <label htmlFor="name">Book Name</label>
+            <input
+              id="name"
+              type="text"
+              value={name}
+              onChange={nameChangeHandler}
+              onBlur={nameBlurHandler}
+            />
+            {nameHasError && (
+              <span className="error-text">Name can't be empty!</span>
+            )}
+          </div>
+          <div className={authorClasses}>
+            <label htmlFor="author">Author</label>
+            <input
+              id="author"
+              type="text"
+              value={author}
+              onChange={authorChangeHandler}
+              onBlur={authorBlurHandler}
+            />
+            {authorHasError && (
+              <span className="error-text">Name can't be empty!</span>
+            )}
+          </div>
+        </div>
+        <div className="buttons">
+          <button className="cansel" onClick={resetForm}>
+            Cansel
+          </button>
+          <button type="submit" className="submit" disabled={!formIsValid}>
+            Add
+          </button>
+        </div>
+      </form>
+    </>
   );
 };
 

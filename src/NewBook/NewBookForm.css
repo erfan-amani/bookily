@@ -5,10 +5,38 @@
   margin: auto 0;
 }
 
-.new-book-form__inputs {
+.inputs {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1rem;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+}
+.control input {
+  padding: 0.5rem 1rem;
+  font-size: 0.87rem;
+  border-radius: 0.2rem;
+  width: 100%;
+  border: 2px solid #3f413c;
+}
+.control input:focus,
+.control input:active {
+  outline: none;
+  border: 2px solid #2a2b2a;
+}
+
+.control.invalid input,
+.control.invalid input:focus,
+.control.invalid input:active {
+  border-color: rgb(216, 51, 51);
+  background-color: #ff000036;
+}
+
+.error-text {
+  color: crimson;
 }
 
 .new-book-form p {
@@ -16,7 +44,7 @@
   font-weight: 500;
 }
 
-.new-book-form__buttons {
+.buttons {
   display: flex;
   gap: 3rem;
   align-items: center;
@@ -24,18 +52,25 @@
   padding-top: 0.93rem;
 }
 
-.new-book-form__buttons a {
-  color: #2a2b2a;
-  text-decoration: none;
-}
-
-.new-book-form__buttons button {
+.submit {
   cursor: pointer;
   background-color: #bdecc2;
-  font-size: 1rem;
+  font-size: 1.1rem;
   width: 40%;
   padding: 0.93rem 0.3rem;
   border: none;
+}
+.submit:disabled {
+  background-color: #ccc;
+  color: #292929;
+  cursor: not-allowed;
+}
+.cansel {
+  font-size: 1.1rem;
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+  color: #2a2b2a;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -46,9 +81,17 @@
 
 @media only screen and (max-width: 768px) {
   .new-book-form {
-    gap: 0;
+    gap: 0rem;
   }
-  .new-book-form__inputs {
+  .inputs {
     flex-direction: row;
+  }
+  .control input {
+    padding: 0.3rem 0.8rem;
+    width: 100%;
+    border: 1px solid #3f413c;
+  }
+  .control input:focus {
+    border: 1px solid #2a2b2a;
   }
 }
