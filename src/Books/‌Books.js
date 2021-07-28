@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import { useState, useContext } from 'react';
 import BooksFilter from './BooksFilter';
 import './Books.css';
 import BooksSearch from './BooksSearch';
 import BooksList from './BooksList';
+import BooksContext from '../store/books-context';
 
-const Books = ({
-  items,
-  deleteBookHandler,
-  likeBookHandler,
-  readBookHandler,
-}) => {
+const Books = () => {
+  const booksCtx = useContext(BooksContext);
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -21,14 +18,14 @@ const Books = ({
     setSearchTerm(event.target.value);
   };
 
-  let filteredBooks = items.filter(
+  let filteredBooks = booksCtx.books.filter(
     (book) =>
       book.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       book.author.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   if (selectedFilter !== 'all') {
-    filteredBooks = items.filter((book) =>
+    filteredBooks = booksCtx.books.filter((book) =>
       selectedFilter === 'not read' ? !book.read : book[selectedFilter]
     );
   }
@@ -45,9 +42,9 @@ const Books = ({
       />
       <BooksList
         items={filteredBooks}
-        deleteBookHandler={deleteBookHandler}
-        likeBookHandler={likeBookHandler}
-        readBookHandler={readBookHandler}
+        deleteBookHandler={booksCtx.removeBook}
+        likeBookHandler={booksCtx.likeBook}
+        readBookHandler={booksCtx.readBook}
       />
     </div>
   );

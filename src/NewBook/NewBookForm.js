@@ -1,8 +1,10 @@
-import React, { useRef } from 'react';
+import { useContext, useRef } from 'react';
 import './NewBookForm.css';
 import useInput from '../hooks/use-input';
+import BooksContext from '../store/books-context';
 
-const NewBookForm = ({ addNewBookHandler }) => {
+const NewBookForm = () => {
+  const { addBook } = useContext(BooksContext);
   const submitButtonRef = useRef();
 
   const {
@@ -29,7 +31,8 @@ const NewBookForm = ({ addNewBookHandler }) => {
     event.preventDefault();
 
     if (!formIsValid) return;
-    addNewBookHandler({ name, author });
+
+    addBook({ name, author });
 
     submitButtonRef.current.focus(); // blur input after submiting by focusing on button
     resetForm();

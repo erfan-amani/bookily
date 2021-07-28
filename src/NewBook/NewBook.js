@@ -1,12 +1,11 @@
-import React from 'react';
-import './NewBook.css';
 import NewBookForm from './NewBookForm';
+import './NewBook.css';
 
-const NewBook = ({ addNewBookHandler }) => {
+const NewBook = () => {
   return (
     <div className="new-book">
       <h1 className="header">Bookily</h1>
-      <NewBookForm addNewBookHandler={addNewBookHandler} />
+      <NewBookForm />
     </div>
   );
 };
