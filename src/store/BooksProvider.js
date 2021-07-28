@@ -5,42 +5,42 @@ const INITIAL_DATA = [
   {
     name: 'War and Peace',
     author: 'Leo Tolstoy',
-    liked: true,
+    like: true,
     read: true,
     id: 'waplt27',
   },
   {
     name: 'Song of Solomon',
     author: 'Toni Morrison',
-    liked: false,
+    like: false,
     read: false,
     id: 'sostm98',
   },
   {
     name: 'Ulysses',
     author: 'James Joyce',
-    liked: false,
+    like: false,
     read: false,
     id: 'ujj57',
   },
   {
     name: 'The Shadow of the Wind',
     author: 'Carlos Ruiz Zafon',
-    liked: false,
+    like: false,
     read: false,
     id: 'tsotwcrz56',
   },
   {
     name: 'The Lord of the Rings',
     author: 'J.R.R. Tolkien',
-    liked: true,
+    like: true,
     read: false,
     id: 'tlotrjt',
   },
   {
     name: 'Great Gatsby',
     author: 'F. Scott Fitzgerald',
-    liked: false,
+    like: false,
     read: true,
     id: 'ggsf',
   },
@@ -79,9 +79,15 @@ const booksReducer = (state, action) => {
   }
   if (action.type === 'LIKE') {
     const bookIndex = state.books.findIndex((book) => book.id === action.id);
+    const book = state.books[bookIndex];
+
+    const existBook = {
+      ...book,
+      like: !book.like,
+    };
 
     const updatedBooks = [...state.books];
-    updatedBooks[bookIndex].like = !updatedBooks[bookIndex].like;
+    updatedBooks[bookIndex] = existBook;
 
     return {
       books: updatedBooks,
@@ -89,9 +95,15 @@ const booksReducer = (state, action) => {
   }
   if (action.type === 'READ') {
     const bookIndex = state.books.findIndex((book) => book.id === action.id);
+    const book = state.books[bookIndex];
+
+    const existBook = {
+      ...book,
+      read: !book.read,
+    };
 
     const updatedBooks = [...state.books];
-    updatedBooks[bookIndex].read = !updatedBooks[bookIndex].read;
+    updatedBooks[bookIndex] = existBook;
 
     return {
       books: updatedBooks,

@@ -14,7 +14,7 @@ const BooksList = ({
         <BooksListItem
           name={book.name}
           author={book.author}
-          liked={book.liked}
+          like={book.like}
           read={book.read}
           key={book.id}
           id={book.id}

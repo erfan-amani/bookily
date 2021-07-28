@@ -9,7 +9,7 @@ import squareOutline from '../icons/square-outline.svg';
 const BooksListItem = ({
   name,
   author,
-  liked,
+  like,
   read,
   id,
   deleteBookHandler,
@@ -28,7 +28,7 @@ const BooksListItem = ({
         />
         <img src={trash} alt="trash" onClick={() => deleteBookHandler(id)} />
         <img
-          src={liked ? heartFill : heartOutline}
+          src={like ? heartFill : heartOutline}
           alt="like"
           onClick={() => likeBookHandler(id)}
         />
