@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './NewBookForm.css';
 import useInput from '../hooks/use-input';
 
 const NewBookForm = ({ addNewBookHandler }) => {
+  const submitButtonRef = useRef();
+
   const {
     value: name,
     valueIsValid: nameIsValid,
@@ -29,6 +31,7 @@ const NewBookForm = ({ addNewBookHandler }) => {
     if (!formIsValid) return;
     addNewBookHandler({ name, author });
 
+    submitButtonRef.current.focus(); // blur input after submiting by focusing on button
     resetForm();
   };
 
@@ -73,10 +76,15 @@ const NewBookForm = ({ addNewBookHandler }) => {
           </div>
         </div>
         <div className="buttons">
-          <button className="cansel" onClick={resetForm}>
+          <button type="reset" className="cansel" onClick={resetForm}>
             Cansel
           </button>
-          <button type="submit" className="submit" disabled={!formIsValid}>
+          <button
+            ref={submitButtonRef}
+            type="submit"
+            className="submit"
+            disabled={!formIsValid}
+          >
             Add
           </button>
         </div>
