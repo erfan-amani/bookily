@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import { v4 as uuid } from 'uuid';
 import BooksContext from './books-context';
 
 const INITIAL_DATA = [
@@ -7,42 +8,42 @@ const INITIAL_DATA = [
     author: 'Leo Tolstoy',
     like: true,
     read: true,
-    id: 'waplt27',
+    id: uuid(),
   },
   {
     name: 'Song of Solomon',
     author: 'Toni Morrison',
     like: false,
     read: false,
-    id: 'sostm98',
+    id: uuid(),
   },
   {
     name: 'Ulysses',
     author: 'James Joyce',
     like: false,
     read: false,
-    id: 'ujj57',
+    id: uuid(),
   },
   {
     name: 'The Shadow of the Wind',
     author: 'Carlos Ruiz Zafon',
     like: false,
     read: false,
-    id: 'tsotwcrz56',
+    id: uuid(),
   },
   {
     name: 'The Lord of the Rings',
     author: 'J.R.R. Tolkien',
     like: true,
     read: false,
-    id: 'tlotrjt',
+    id: uuid(),
   },
   {
     name: 'Great Gatsby',
     author: 'F. Scott Fitzgerald',
     like: false,
     read: true,
-    id: 'ggsf',
+    id: uuid(),
   },
 ];
 
@@ -52,17 +53,9 @@ const defaultBooksState = {
 
 const booksReducer = (state, action) => {
   if (action.type === 'ADD') {
-    const arr = [
-      ...action.book.name.split(' '),
-      ...action.book.author.split(' '),
-    ];
-    const id =
-      arr.reduce((id, word) => id + word[0].toLowerCase(), '') +
-      Math.round(Math.random() * 100);
-
     const newBook = {
       ...action.book,
-      id,
+      id: uuid(),
       like: false,
       read: false,
     };
